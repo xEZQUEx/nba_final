@@ -1,0 +1,190 @@
+import { StyleSheet, Platform, StatusBar } from 'react-native';
+
+const SPACING = {
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+};
+
+export default StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#3b3b6b',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+  },
+  scrollContent: {
+    flexGrow: 1,
+  },
+  container: {
+    alignItems: 'center',
+    paddingVertical: SPACING.xl,
+    paddingBottom: 40,
+    gap: SPACING.lg,
+  },
+  headerTitle: {
+    fontSize: 22,
+    fontWeight: '900',
+    color: '#FFD700',
+    letterSpacing: 2,
+    textAlign: 'center',
+  },
+  finalScoreContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '92%',
+    backgroundColor: '#52528a',
+    borderRadius: 15,
+    padding: SPACING.lg,
+    borderWidth: 2,
+    borderColor: '#6a6aaa',
+  },
+  teamScoreBox: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  smallLogo: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
+    marginBottom: SPACING.xs,
+  },
+  teamNameSmall: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: SPACING.xs,
+    color: '#fff',
+  },
+  finalScore: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  vs: {
+    fontSize: 24,
+    color: '#bbb',
+    marginHorizontal: SPACING.md,
+  },
+  winnerSection: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: SPACING.md,
+  },
+  winnerLabel: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: '#FFD700',
+    marginBottom: SPACING.md,
+    letterSpacing: 1,
+  },
+  winnerLogo: {
+    width: 120,
+    height: 120,
+    resizeMode: 'contain',
+    marginBottom: SPACING.md,
+  },
+  winnerName: {
+    fontSize: 24,
+    fontWeight: '900',
+    textAlign: 'center',
+    marginBottom: SPACING.sm,
+    color: '#fff',
+  },
+  victoryText: {
+    fontSize: 14,
+    color: '#ddd',
+    fontWeight: '600',
+  },
+  tieTitle: {
+    fontSize: 28,
+    fontWeight: '900',
+    color: '#FFD700',
+    marginBottom: SPACING.lg,
+  },
+  tieLogos: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: SPACING.md,
+  },
+  tieLogo: {
+    width: 80,
+    height: 80,
+    resizeMode: 'contain',
+  },
+  tieText: {
+    fontSize: 20,
+    color: '#bbb',
+    marginHorizontal: SPACING.lg,
+    fontWeight: 'bold',
+  },
+  tieSubtitle: {
+    fontSize: 14,
+    color: '#ddd',
+    fontWeight: '600',
+  },
+  topScorersContainer: {
+    width: '92%',
+    backgroundColor: '#52528a',
+    borderRadius: 12,
+    padding: SPACING.lg,
+    borderWidth: 1,
+    borderColor: '#6a6aaa',
+  },
+  topScorersTitle: {
+    color: '#FFD700',
+    fontSize: 14,
+    fontWeight: '900',
+    textAlign: 'center',
+    marginBottom: SPACING.md,
+    letterSpacing: 1,
+  },
+  scorerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#3b3b6b',
+    borderRadius: 8,
+    padding: SPACING.sm,
+    marginBottom: SPACING.sm,
+  },
+  scorerRank: {
+    fontSize: 16,
+    width: 30,
+    textAlign: 'center',
+    color: '#fff',
+  },
+  scorerInfo: {
+    flex: 1,
+    marginLeft: SPACING.sm,
+  },
+  scorerName: {
+    color: '#fff',
+    fontSize: 13,
+    fontWeight: 'bold',
+  },
+  scorerTeam: {
+    color: '#aaa',
+    fontSize: 10,
+  },
+  scorerPoints: {
+    color: '#FFD700',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  backButton: {
+    backgroundColor: '#FF4500',
+    paddingVertical: SPACING.lg,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#FF6347',
+  },
+  backButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '900',
+  },
+});

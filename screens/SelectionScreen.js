@@ -1,21 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-  StyleSheet, 
   Text, 
   View, 
   Image, 
-  TouchableOpacity, 
+  Pressable,
   FlatList, 
-  SafeAreaView, 
-  Platform, 
-  StatusBar 
+  SafeAreaView 
 } from 'react-native';
 
 import { TEAMS } from '../data';
+import { getLastGame } from '../utils/storage';
+import styles from '../styles/SelectionStyles';
 
 export default function SelectionScreen({ navigation }) {
   const [localIndex, setLocalIndex] = useState(0);
   const [visitanteIndex, setVisitanteIndex] = useState(1);
+  const [lastGame, setLastGame] = useState(null);
+
+  // Cargar último partido al entrar a la pantalla
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', async () => {
+      const data = await getLastGame();
+      if (data) setLastGame(data);
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   const nextLocal = () => {
     setLocalIndex((prev) => (prev + 1) % TEAMS.length);
@@ -45,6 +54,16 @@ export default function SelectionScreen({ navigation }) {
         
         <Text style={styles.headerTitle}>🏀 NBA JAM RETRO 🏀</Text>
 
+        {/* Banner último partido */}
+        {lastGame && (
+          <View style={styles.lastGameBanner}>
+            <Text style={styles.lastGameText}>ÚLTIMO PARTIDO</Text>
+            <Text style={styles.lastGameScore}>
+              {lastGame.localName} {lastGame.scoreLocal} - {lastGame.scoreVisitante} {lastGame.visitanteName}
+            </Text>
+          </View>
+        )}
+
         {/* AREA LOCAL */}
         <View style={[styles.teamArea, { backgroundColor: '#F9F9F9' }]}>
           <View style={styles.teamHeader}>
@@ -64,13 +83,19 @@ export default function SelectionScreen({ navigation }) {
               keyExtractor={(item) => item.id}
               scrollEnabled={false} 
               numColumns={2} 
-              columnWrapperStyle={{justifyContent: 'flex-start'}}
+              columnWrapperStyle={{ justifyContent: 'flex-start' }}
             />
           </View>
 
-          <TouchableOpacity style={styles.changeButton} onPress={nextLocal}>
+          <Pressable
+            onPress={nextLocal}
+            style={({ pressed }) => [
+              styles.changeButton,
+              pressed && { opacity: 0.7, transform: [{ scale: 0.96 }] },
+            ]}
+          >
             <Text style={styles.buttonText}>CAMBIAR LOCAL</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         {/* SEPARADOR VS */}
@@ -97,112 +122,33 @@ export default function SelectionScreen({ navigation }) {
               keyExtractor={(item) => item.id}
               scrollEnabled={false}
               numColumns={2}
-              columnWrapperStyle={{justifyContent: 'flex-start'}}
+              columnWrapperStyle={{ justifyContent: 'flex-start' }}
             />
           </View>
 
-          <TouchableOpacity style={styles.changeButton} onPress={nextVisitante}>
+          <Pressable
+            onPress={nextVisitante}
+            style={({ pressed }) => [
+              styles.changeButton,
+              pressed && { opacity: 0.7, transform: [{ scale: 0.96 }] },
+            ]}
+          >
             <Text style={styles.buttonText}>CAMBIAR VISITANTE</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         {/* BOTON JUGAR */}
-        <TouchableOpacity style={styles.startButton} onPress={startGame}>
+        <Pressable
+          onPress={startGame}
+          style={({ pressed }) => [
+            styles.startButton,
+            pressed && { opacity: 0.7, transform: [{ scale: 0.98 }] },
+          ]}
+        >
           <Text style={styles.startButtonText}>🔥 EMPEZAR PARTIDO 🔥</Text>
-        </TouchableOpacity>
+        </Pressable>
 
       </View>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-  },
-  mainContainer: {
-    flex: 1,
-  },
-  headerTitle: {
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: '900',
-    paddingVertical: 10,
-    backgroundColor: '#000',
-    color: '#FFD700',
-  },
-  teamArea: {
-    flex: 1,
-    padding: 15,
-    justifyContent: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  teamHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  logo: {
-    width: 70, 
-    height: 70,
-    resizeMode: 'contain',
-    marginRight: 15,
-  },
-  teamLabel: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: '#888',
-  },
-  teamName: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  rosterContainer: {
-    height: 75, 
-    marginBottom: 10,
-  },
-  playerText: {
-    fontSize: 12,
-    color: '#333',
-    width: '50%',
-    paddingVertical: 2,
-  },
-  vsContainer: {
-    height: 30,
-    backgroundColor: '#000',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 10,
-  },
-  vsText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  changeButton: {
-    backgroundColor: '#333',
-    paddingVertical: 8,
-    width: 180,
-    alignSelf: 'center',
-    borderRadius: 20,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 12,
-  },
-  startButton: {
-    backgroundColor: '#FF4500',
-    padding: 20,
-    alignItems: 'center',
-  },
-  startButtonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '900',
-  },
-});

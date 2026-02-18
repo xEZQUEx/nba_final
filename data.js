@@ -16,7 +16,7 @@ export const TEAMS = [
     id: '2',
     name: 'L.A. Lakers',
     color: '#552583',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/2560px-Los_Angeles_Lakers_logo.svg.png',
+    logo: 'https://loodibee.com/wp-content/uploads/nba-los-angeles-lakers-logo.png',
     players: [
       { id: 'p6', name: 'Magic Johnson' },
       { id: 'p7', name: 'Kareem Abdul-Jabbar' },
