@@ -3,7 +3,7 @@ export const TEAMS = [
     id: '1',
     name: 'Chicago Bulls',
     color: '#CE1141',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Chicago_Bulls_logo.svg/1200px-Chicago_Bulls_logo.svg.png',
+    logo: require('./assets/bulls.png'),
     players: [
       { id: 'p1', name: 'Michael Jordan' },
       { id: 'p2', name: 'Scottie Pippen' },
@@ -16,7 +16,7 @@ export const TEAMS = [
     id: '2',
     name: 'L.A. Lakers',
     color: '#552583',
-    logo: 'https://loodibee.com/wp-content/uploads/nba-los-angeles-lakers-logo.png',
+    logo: require('./assets/lakers.png'),
     players: [
       { id: 'p6', name: 'Magic Johnson' },
       { id: 'p7', name: 'Kareem Abdul-Jabbar' },
@@ -29,7 +29,7 @@ export const TEAMS = [
     id: '3',
     name: 'Boston Celtics',
     color: '#007A33',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Boston_Celtics.svg/1200px-Boston_Celtics.svg.png',
+    logo: require('./assets/celtics.png'),
     players: [
       { id: 'p11', name: 'Larry Bird' },
       { id: 'p12', name: 'Kevin McHale' },
@@ -42,7 +42,7 @@ export const TEAMS = [
     id: '4',
     name: 'Golden St. Warriors',
     color: '#1D428A',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/01/Golden_State_Warriors_logo.svg/1200px-Golden_State_Warriors_logo.svg.png',
+    logo: require('./assets/warriors.png'),
     players: [
       { id: 'p16', name: 'Steph Curry' },
       { id: 'p17', name: 'Klay Thompson' },
@@ -55,7 +55,7 @@ export const TEAMS = [
     id: '5',
     name: 'Miami Heat',
     color: '#98002E',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Miami_Heat_logo.svg/1200px-Miami_Heat_logo.svg.png',
+    logo: require('./assets/heat.png'),
     players: [
       { id: 'p21', name: 'Dwyane Wade' },
       { id: 'p22', name: 'LeBron James' },
@@ -67,8 +67,8 @@ export const TEAMS = [
   {
     id: '6',
     name: 'San Antonio Spurs',
-    color: '#000000',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/San_Antonio_Spurs.svg/1200px-San_Antonio_Spurs.svg.png',
+    color: '#000000ff',
+    logo: require('./assets/spurs.png'),
     players: [
       { id: 'p26', name: 'Tim Duncan' },
       { id: 'p27', name: 'Tony Parker' },

@@ -128,7 +128,7 @@ export default function GameScreen({ route, navigation }) {
           {/* MARCADOR */}
           <View style={styles.scoreboard}>
             <View style={[styles.scoreCard, { borderColor: local.color }]}>
-              <Image source={{ uri: local.logo }} style={styles.smallLogo} />
+              <Image source={local.logo} style={styles.smallLogo} />
               <Text style={[styles.scoreName, { color: local.color }]}>{local.name}</Text>
               <Text style={styles.points}>{scoreLocal}</Text>
             </View>
@@ -136,7 +136,7 @@ export default function GameScreen({ route, navigation }) {
             <Text style={styles.dash}>VS</Text>
 
             <View style={[styles.scoreCard, { borderColor: visitante.color }]}>
-              <Image source={{ uri: visitante.logo }} style={styles.smallLogo} />
+              <Image source={visitante.logo} style={styles.smallLogo} />
               <Text style={[styles.scoreName, { color: visitante.color }]}>{visitante.name}</Text>
               <Text style={styles.points}>{scoreVisitante}</Text>
             </View>

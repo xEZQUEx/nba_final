@@ -37,7 +37,7 @@ export default function WinnerScreen({ route, navigation }) {
           {/* Marcador final */}
           <View style={styles.finalScoreContainer}>
             <View style={styles.teamScoreBox}>
-              <Image source={{ uri: local.logo }} style={styles.smallLogo} />
+              <Image source={local.logo} style={styles.smallLogo} />
               <Text style={styles.teamNameSmall}>
                 {local.name}
               </Text>
@@ -47,7 +47,7 @@ export default function WinnerScreen({ route, navigation }) {
             <Text style={styles.vs}>-</Text>
 
             <View style={styles.teamScoreBox}>
-              <Image source={{ uri: visitante.logo }} style={styles.smallLogo} />
+              <Image source={visitante.logo} style={styles.smallLogo} />
               <Text style={styles.teamNameSmall}>
                 {visitante.name}
               </Text>
@@ -61,9 +61,9 @@ export default function WinnerScreen({ route, navigation }) {
               <>
                 <Text style={styles.tieTitle}>¡EMPATE!</Text>
                 <View style={styles.tieLogos}>
-                  <Image source={{ uri: local.logo }} style={styles.tieLogo} />
+                  <Image source={local.logo} style={styles.tieLogo} />
                   <Text style={styles.tieText}>VS</Text>
-                  <Image source={{ uri: visitante.logo }} style={styles.tieLogo} />
+                  <Image source={visitante.logo} style={styles.tieLogo} />
                 </View>
                 <Text style={styles.tieSubtitle}>
                   Ambos equipos quedaron igualados
@@ -73,7 +73,7 @@ export default function WinnerScreen({ route, navigation }) {
               <>
                 <Text style={styles.winnerLabel}>🏆 GANADOR 🏆</Text>
                 <Image 
-                  source={{ uri: winner.logo }} 
+                  source={winner.logo} 
                   style={styles.winnerLogo} 
                 />
                 <Text style={styles.winnerName}>

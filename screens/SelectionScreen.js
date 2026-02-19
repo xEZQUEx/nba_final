@@ -67,7 +67,7 @@ export default function SelectionScreen({ navigation }) {
         {/* AREA LOCAL */}
         <View style={[styles.teamArea, { backgroundColor: '#F9F9F9' }]}>
           <View style={styles.teamHeader}>
-            <Image source={{ uri: localTeam.logo }} style={styles.logo} />
+            <Image source={localTeam.logo} style={styles.logo} />
             <View>
               <Text style={styles.teamLabel}>LOCAL</Text>
               <Text style={[styles.teamName, { color: localTeam.color }]}>
@@ -106,7 +106,7 @@ export default function SelectionScreen({ navigation }) {
         {/* VISITANTE */}
         <View style={[styles.teamArea, { backgroundColor: '#ECECEC' }]}>
           <View style={styles.teamHeader}>
-            <Image source={{ uri: visitTeam.logo }} style={styles.logo} />
+            <Image source={visitTeam.logo} style={styles.logo} />
             <View>
               <Text style={styles.teamLabel}>VISITANTE</Text>
               <Text style={[styles.teamName, { color: visitTeam.color }]}>
